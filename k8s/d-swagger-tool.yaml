@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appd-swagger
+  labels:
+    app: appd-swagger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appd-swagger
+  template:
+    metadata:
+      labels:
+        app: appd-swagger
+    spec:
+      containers:
+        - name: appd-swagger
+          image: chrlic/swagger:2.1
+          ports:
+            - containerPort: 8686
+          envFrom:
+            - configMapRef:
+                name: appd-swagger-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appd-swagger
+  labels:
+    run: appd-swagger
+spec:
+  ports:
+  - port: 8686
+    targetPort: 8686
+    protocol: TCP
+  selector:
+    app: appd-swagger
+  type: ClusterIP

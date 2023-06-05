@@ -1,0 +1,15 @@
+<mds-data controller-version="021-009-002-000">
+  <scope-list>
+    <scope scope-description="" scope-name="Default Scope" scope-type="ALL_TIERS_IN_APP" scope-version="1"></scope>
+  </scope-list>
+  <rule-list>
+    <rule agent-type="APPLICATION_SERVER" enabled="true" priority="2" rule-description="MD-rule-1" rule-name="MD-rule-1" rule-type="TX_MATCH_RULE" version="1">
+      <tx-match-rule>{"type":"CUSTOM","txautodiscoveryrule":{"autodiscoveryconfigs":[]},"txcustomrule":{"type":"INCLUDE","txentrypointtype":"SERVLET","matchconditions":[{"type":"HTTP","httpmatch":{"httpmethod":"GET","uri":{"type":"MATCHES_REGEX","matchstrings":["/first/second1/.*/fourth1"]},"parameters":[],"headers":[],"cookies":[]}}],"actions":[],"properties":[]},"agenttype":"APPLICATION_SERVER"}</tx-match-rule>
+    </rule>
+  </rule-list>
+  <scope-rule-mapping-list>
+    <scope-rule-mapping scope-name="Default Scope">
+      <rule rule-description="MD-rule-1" rule-name="MD-rule-1"></rule>
+    </scope-rule-mapping>
+  </scope-rule-mapping-list>
+</mds-data>

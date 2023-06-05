@@ -1,0 +1,5 @@
+src/rulexlator/go.mod-local
+k8s/swagger-csas.yaml
+assets/pass.png
+**/.DS_Store
+.git-old

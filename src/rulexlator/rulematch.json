@@ -1,0 +1,30 @@
+{
+  "type": "CUSTOM",
+  "txautodiscoveryrule": {
+    "autodiscoveryconfigs": []
+  },
+  "txcustomrule": {
+    "type": "INCLUDE",
+    "txentrypointtype": "SERVLET",
+    "matchconditions": [
+      {
+        "type": "HTTP",
+        "httpmatch": {
+          "httpmethod": "GET",
+          "uri": {
+            "type": "MATCHES_REGEX",
+            "matchstrings": [
+              "/hello/.*/ahoj"
+            ]
+          },
+          "parameters": [],
+          "headers": [],
+          "cookies": []
+        }
+      }
+    ],
+    "actions": [],
+    "properties": []
+  },
+  "agenttype": "APPLICATION_SERVER"
+}
