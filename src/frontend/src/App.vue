@@ -17,7 +17,9 @@
 -->
 
 <template>
-  <router-view />
+  <div id="q-app">
+    <router-view />
+  </div>
 </template>
 
 <script>
