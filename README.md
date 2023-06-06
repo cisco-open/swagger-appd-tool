@@ -29,11 +29,11 @@ Simple GUI should load.
 
 First field required is Application Access Token. This is a kind of safety belt, so that in an environment, where there are multiple application teams using this functionality, they do not unintentionally overwrite configuration of application of another team. By no means this is intended as a bullet proof security mechanism. 
 
-There is a Master Token which can be used to configure any application and to generate Access Tokens for individual applications. The Master Key can be obtained by accessing a URL like  `http://localhost:8686/api/sec/token/0` and look for the "token" value.
+There is a Admin Token which can be used to configure any application and to generate Access Tokens for individual applications. The Admin Token can be obtained by accessing a URL like  `http://localhost:8686/api/sec/token/0` and look for the "token" value.
 
 Application Tokens can then be generated on the Application Tokens screen.
 
-Once you know your token, Master or Application token, select application, scope, language, and file with OpenAPI 2.0 API definition. The format expected at this time is YAML. Json support is in planning. 
+Once you know your token, Admin or Application token, select application, scope, language, and file with OpenAPI 2.0 API definition. The format expected at this time is YAML. Json support is in planning. 
 
 The tool generates transaction detection rules based on the API definition. If it was uploaded previously, it makes necessary changes only to reflect current state of API definition.
 
@@ -70,18 +70,18 @@ The REST API published by the tool provides following services:
 
 * `POST /api/swagger/upload/:appId/:scopeId/:langId/:token`
   
-  Posts a content of a Swagger file for processing and upload to AppDynamics transaction detection rules for a given application and scope. Language ID must be provided in `<langId` parameter and `<token>` must be the correct Application Access Token for the application or the Master Token. It can be used in a following way: `curl –F 'data=@/file/path/name.json' <url-for-POST-per-above>`
+  Posts a content of a Swagger file for processing and upload to AppDynamics transaction detection rules for a given application and scope. Language ID must be provided in `<langId` parameter and `<token>` must be the correct Application Access Token for the application or the Admin Token. It can be used in a following way: `curl –F 'data=@/file/path/name.json' <url-for-POST-per-above>`
 
 
 Language ID's are following:
 
-| Language | langId          |
-| -------- | ----------- |
-| Java | 0 |
-| .NET | 1 |
-| NodeJS | 2 |
-| Python | 3 |
-| PHP | 4 |
+| Language     | langId      |
+|--------------|-------------|
+| Java         | 0 |
+| .NET         | 1 |
+| NodeJS       | 2 |
+| Python       | 3 |
+| PHP          | 4 |
 | Apache HTTPD | 5 |
 
 ### Some API call examples from Linux shell:
@@ -100,3 +100,16 @@ We welcome feedback, questions, issue reports and pull requests.
 
 Maintainer's email address: mdivis@cisco.com
 [GitHub Issues](https://github.com/chrlic/SwaggerAppDTool/issues)
+
+## License
+
+Copyright 2023 Cisco Systems, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License. 
