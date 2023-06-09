@@ -18,6 +18,7 @@
     "ejs": "^3.1.7",
     "qs": "^6.9.7",
     "json5": "^2.2.2",
+    "cookie": "^0.5.0",
     "minimist": "^1.2.6"
   },
   "devDependencies": {
@@ -26,7 +27,12 @@
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "eslint-webpack-plugin": "^2.4.0",
+    "ejs": "^3.1.7",
+    "minimist": "^1.2.6",
+    "cookie": "^0.5.0",
+    "json5": "^2.2.2",
+    "qs": "^6.9.7"
   },
   "browserslist": [
     "last 10 Chrome versions",
