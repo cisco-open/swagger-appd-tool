@@ -24,3 +24,8 @@ license-check:
 .PHONY: license-add-spdx
 license-add-spdx:
 	docker run -it -v ${PWD}:/src -w /src ghcr.io/google/addlicense -check -l apache -c "Cisco" -ignore '**/Dockerfile' -ignore '**/*.yaml' -ignore '**/*.xml' -ignore '**/node_modules/**' -ignore 'src/frontend/.*/**' -ignore 'src/frontend/src/quasar.d.ts' -s .
+
+.PHONY: scan
+scan:
+	~/Downloads/kubeclarity-cli-2.18.1-darwin-amd64/kubeclarity-cli analyze src/frontend/node_modules --input-type dir -o frontend-scan.sbom
+	~/Downloads/kubeclarity-cli-2.18.1-darwin-amd64/kubeclarity-cli scan frontend-scan.sbom --input-type sbom
