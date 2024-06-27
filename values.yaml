@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: <registry image>
+  imagetag: <version api>
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 50m
+    memory: 256Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
