@@ -1,13 +1,17 @@
 replicaCount: 1
 
 image:
-  repository: <registry image>
-  imagetag: <version api>
+  repository: <your repository>/chrlic/swagger
+  imagetag: 2.1
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080 # Změněno na port, na kterém aplikace skutečně naslouchá
+
+route:
+  host: <your dns>
+  targetPort: http # Změněno na port, na kterém aplikace skutečně naslouchá
 
 resources:
   limits:
