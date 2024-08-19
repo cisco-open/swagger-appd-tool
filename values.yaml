@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: <your repository>/chrlic/swagger
+  imagetag: 2.1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080 # Změněno na port, na kterém aplikace skutečně naslouchá
+
+route:
+  host: <your dns>
+  targetPort: http # Změněno na port, na kterém aplikace skutečně naslouchá
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+  requests:
+    cpu: 50m
+    memory: 256Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

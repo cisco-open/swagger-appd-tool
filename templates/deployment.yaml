@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swagger-appd-tool
+  labels:
+    app: swagger-appd-tool
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: swagger-appd-tool
+  template:
+    metadata:
+      labels:
+        app: swagger-appd-tool
+    spec:
+      containers:
+      - name: swagger-appd-tool
+        image: "{{ .Values.image.repository }}:{{ .Values.image.imagetag }}"
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: config-volume
+          mountPath: /path/to/config
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+      volumes:
+      - name: config-volume
+        configMap:
+          name: swagger-appd-config
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+      tolerations:
+{{ toYaml .Values.tolerations | indent 8 }}
+      affinity:
+{{ toYaml .Values.affinity | indent 8 }}

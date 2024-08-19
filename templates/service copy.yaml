@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: swagger-appd-tool
+  labels:
+    app: swagger-appd-tool
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http  # Název portu musí odpovídat názvu použitému v Route
+      port: 8080
+      targetPort: 8686  # Port, na kterém aplikace skutečně naslouchá
+  selector:
+    app: swagger-appd-tool

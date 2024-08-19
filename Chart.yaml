@@ -1,0 +1,5 @@
+apiVersion: v2
+name: swagger-appd-tool
+description: A Helm chart for deploying swagger-appd-tool to OCP4
+version: 0.1.0
+appVersion: "2.1"
